@@ -1,0 +1,15 @@
+# --- 검색 레이어 ---
+tavily-python
+exa-py
+
+# --- 데이터 처리 ---
+httpx              # arXiv, Semantic Scholar, EIA 등 REST 호출
+pymupdf            # PDF 텍스트 추출
+pdfplumber         # PDF 표/레이아웃 파싱
+python-dotenv      # .env 로딩
+
+# --- 크롤링 (4단계에서 설치) ---
+crawl4ai
+
+# --- 완전 자율 모드 전환 시에만 ---
+# anthropic

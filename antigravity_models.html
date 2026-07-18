@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity 지원 AI 모델</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+        /* 전체 페이지 스타일 설정 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e1b4b);
+            color: #f8fafc;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 메인 컨테이너 글래스모피즘 효과 적용 */
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* 페이드 인 애니메이션 정의 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 제목 스타일링 */
+        h1 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 모델 목록 스타일링 */
+        .model-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 개별 모델 아이템 스타일링 */
+        .model-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 호버 시 인터랙션 효과 */
+        .model-item:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        /* 마이크로 인터랙션 - 빛 번짐 효과 */
+        .model-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.5s ease;
+        }
+
+        .model-item:hover::after {
+            left: 150%;
+        }
+
+        /* 텍스트 스타일링 */
+        .model-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .model-desc {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+
+        /* 상태 뱃지 기본 스타일 */
+        .status-badge {
+            background: rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* 선택된 활성 상태 뱃지 스타일 */
+        .status-badge.active {
+            background: rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Antigravity AI Models</h1>
+        <ul class="model-list">
+            <!-- 현재 선택된 메인 모델 렌더링 -->
+            <li class="model-item">
+                <div>
+                    <div class="model-name">Gemini 3.1 Pro (High)</div>
+                    <div class="model-desc">가장 강력한 성능의 최신 모델</div>
+                </div>
+                <div class="status-badge active">현재 선택됨</div>
+            </li>
+            <!-- 다른 지원 모델들 렌더링 -->
+            <li class="model-item">
+                <div>
+                    <div class="model-name">Gemini 3.1 Pro</div>
+                    <div class="model-desc">고성능 표준 모델</div>
+                </div>
+                <div class="status-badge">대기 중</div>
+            </li>
+            <li class="model-item">
+                <div>
+                    <div class="model-name">Gemini 3.1 Flash</div>
+                    <div class="model-desc">빠르고 효율적인 경량 모델</div>
+                </div>
+                <div class="status-badge">대기 중</div>
+            </li>
+            <li class="model-item">
+                <div>
+                    <div class="model-name">Claude 3.5 Sonnet</div>
+                    <div class="model-desc">Anthropic의 강력한 다목적 모델</div>
+                </div>
+                <div class="status-badge">대기 중</div>
+            </li>
+            <li class="model-item">
+                <div>
+                    <div class="model-name">GPT-4o</div>
+                    <div class="model-desc">OpenAI의 다중 모달 모델</div>
+                </div>
+                <div class="status-badge">대기 중</div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
