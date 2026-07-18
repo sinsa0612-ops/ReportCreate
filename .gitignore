@@ -19,3 +19,6 @@ library/
 .agents/
 _bmad/
 _bmad-output/
+
+# --- 압축파일 (실수로 전체 프로젝트/키 업로드 방지) ---
+*.zip
